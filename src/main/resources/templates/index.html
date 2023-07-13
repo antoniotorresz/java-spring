@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thmeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<h1>Hola mundo con thmeleaf</h1>
+<p th:text="${mensaje}">
+</p>
+
+<div th:if="${personas != null and !personas.empty}">
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Telefono</th>
+        </tr>
+        <tr th:each="p : ${personas}">
+            <td th:text="${p.nombre}"></td>
+            <td th:text="${p.apellido}"></td>
+            <td th:text="${p.email}"></td>
+            <td th:text="${p.telefono}"></td>
+        </tr>
+    </table>
+</div>
+<div th:if="${personas == null or personas.empty}">
+    La lista de personas no tiene elementos, mire una persona creada en el controlador
+    <p th:text="${persona.nombre}"></p>
+</div>
+</body>
+</html>
